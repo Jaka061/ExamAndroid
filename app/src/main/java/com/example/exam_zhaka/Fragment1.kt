@@ -42,18 +42,21 @@ class Fragment1 : Fragment(R.layout.fragment) {
         recycler.adapter = adapter
         recycler.addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
 
-        add.setOnClickListener {
-            for (i in 0..50){
+        if(name.text?.isNotEmpty() == true) {
+            if(num.text?.isNotEmpty() == true) {
+                add.setOnClickListener {
+                    for (i in 0..50) {
 //                nameList.add(i,name.toString())
 //                numList.add(i,num.toString())
-                nameList.add("Name - $it")
-                numList.add("05 - $it 745")
+                        nameList.add("Name - $it")
+                        numList.add("05 - $it 745")
+                    }
+                    val contact = Contacts(nameList[index], numList[index])
+                    adapter.setContact(contact)
+                    index++
+                }
             }
-            val contact = Contacts(nameList[index],numList[index])
-            adapter.setContact(contact)
-            index++
         }
-
 
     }
 
