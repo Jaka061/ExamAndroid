@@ -21,7 +21,7 @@ private lateinit var listener : OnBtnClicked
         val num = view.findViewById<AppCompatTextView>(R.id.num2)
 
         val textFr = arguments?.getString("textF")
-        val textNum = arguments?.get("Num")
+        val textNum = arguments?.getString("Num")
         txt.text = textFr
         num.text = textNum.toString()
 

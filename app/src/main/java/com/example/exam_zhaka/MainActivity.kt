@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() ,OnBtnClicked {
         fragment2.arguments = bundle
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.frag_cont,fragment2)
+            .add(R.id.frag_cont,fragment2)
             .addToBackStack(null).commit()
     }
 

@@ -8,10 +8,10 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 
 class SimpleAdapter(
-    private val click: (pos: Int) -> Unit) : RecyclerView.Adapter<SimpleAdapter.ViewHolder>() {
-    var contList = ArrayList<Contacts>()
+    private val click: (contact: Contacts) -> Unit) : RecyclerView.Adapter<SimpleAdapter.ViewHolder>() {
+    private var contList = mutableListOf<Contacts>()
 
-    fun setContact(contact : Contacts) {
+    fun setContact(contact: Contacts) {
         contList.add(contact)
         notifyDataSetChanged()
     }
@@ -30,14 +30,14 @@ class SimpleAdapter(
         return contList.size
     }
 
-    class ViewHolder(itemView: View, private val click: (pos: Int) -> Unit ) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View, private val click: (contact: Contacts) -> Unit ) : RecyclerView.ViewHolder(itemView) {
         fun bind(contacts: Contacts) {
             val txt = itemView.findViewById<AppCompatTextView>(R.id.item_txt)
             val btn = itemView.findViewById<AppCompatButton>(R.id.btn)
 
             txt.text = contacts.name
             btn.setOnClickListener {
-                click.invoke(adapterPosition)
+                click.invoke(contacts)
             }
         }
     }
