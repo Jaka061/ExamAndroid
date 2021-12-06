@@ -34,7 +34,6 @@ class SimpleAdapter(
         fun bind(contacts: Contacts) {
             val txt = itemView.findViewById<AppCompatTextView>(R.id.item_txt)
             val btn = itemView.findViewById<AppCompatButton>(R.id.btn)
-
             txt.text = contacts.name
             btn.setOnClickListener {
                 click.invoke(contacts)

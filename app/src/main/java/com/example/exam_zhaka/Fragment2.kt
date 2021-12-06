@@ -22,7 +22,7 @@ private lateinit var listener : OnBtnClicked
 
         val textFr = arguments?.getString("textF")
         val textNum = arguments?.getString("Num")
-        txt.text = textFr
+        txt.text = textFr.toString()
         num.text = textNum.toString()
 
 

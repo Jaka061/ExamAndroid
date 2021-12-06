@@ -30,28 +30,23 @@ class Fragment1 : Fragment(R.layout.fragment) {
         val recycler = view.findViewById<RecyclerView>(R.id.recycler)
         val layoutManager = LinearLayoutManager(activity)
 
-
         val adapter = SimpleAdapter {
             val text = it.name
             val num = it.number
             listener.setText1(text,num)
-
         }
-                add.setOnClickListener {
-                    if(name.text.toString().isNotEmpty() && num.text.toString().isNotEmpty()) {
-                         val contList = Contacts(name.text.toString(),num.text.toString())
-                         Toast.makeText(activity, "Number", Toast.LENGTH_SHORT).show()
-                         adapter.setContact(contList)
-                    }
-                }
+
+        add.setOnClickListener {
+            if(name.text.toString().isNotEmpty() && num.text.toString().isNotEmpty()) {
+                val contList = Contacts(name.text.toString(),num.text.toString())
+                Toast.makeText(activity, "Number", Toast.LENGTH_SHORT).show()
+                adapter.setContact(contList)
+            }
+        }
 
         recycler.layoutManager = layoutManager
         recycler.adapter = adapter
         recycler.addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
-
-
     }
-
-
 }
 
