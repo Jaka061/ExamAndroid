@@ -25,6 +25,5 @@ private lateinit var listener : OnBtnClicked
         txt.text = textFr.toString()
         num.text = textNum.toString()
 
-
     }
 }
